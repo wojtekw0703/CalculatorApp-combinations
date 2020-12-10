@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from math import factorial
 
 #Declaring the app
 app = Flask(__name__)
@@ -14,17 +15,34 @@ def main():
 
 #Form Submission Route
 @app.route('/send', methods=['POST'])
-def send():
+
+
+def send(sum=sum):
     if request.method == 'POST':
         #Start pulling data from form input
-        num1 = request.form['num1']
-        num2 = request.form['num2']
+        n = request.form['n']
+        k = request.form['k']
         operation = request.form['operation']
         #Calculation
         if operation == 'combinations-with-repetitions':
-            sum = 0
-            return render_template('app.html', sum=sum)
-        elif operation == 'combinations-with-repetitions':
-            sum = 0
-            return render_template('app.html', sum=sum)
+            try:
+                numerator = factorial(int(n) + int(k) - 1)
+                denominator = factorial(int(k)) * factorial(int(n) - 1)
+                sum = int(numerator) / int(denominator)
+                return render_template('app.html', sum=sum)
+            except:
+                return render_template('app.html', sum="Error has been occurred")
+        elif operation == 'combinations-without-repetitions':
+            try:
+                numerator = factorial(int(n))
+                denominator = factorial(int(k)) * factorial(int(n) - int(k))
+                sum = int(numerator) / int(denominator)
+                return render_template('app.html', sum=sum)
+            except:
+                return render_template('app.html', sum="Error has been occurred")
+        else:
+            return render_template('app.html', alert="Blad")
 
+if __name__ == ' __main__':
+    app.debug = True
+    app.run()
