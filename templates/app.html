@@ -16,7 +16,7 @@
         padding: 1rem;
         border-radius: 10px;
         color: white;
-        margin: 1rem;
+        margin: 0.5rem;
       }
     </style>
   </head>
@@ -28,33 +28,39 @@
     <!-- Form -->
     <div class="container">
       <form action="/send" method="POST">
-        <label for="Number One">First Number</label>
+        <label for="Number n">n</label>
         <input
           type="text"
-          placeholder="First Number"
+          placeholder="Enter n"
           class="u-full-width"
-          name="num1"
+          name="n"
         />
 
-        <label for="Number Two">Second Number</label>
+        <label for="Number k">k</label>
         <input
           type="text"
-          placeholder="Second Number"
+          placeholder="Enter k"
           class="u-full-width"
-          name="num2"
+          name="k"
         />
 
         <label for="Operation">Operation</label>
-        <select class="u-full-width" name="operation"  placeholder="Choose the option">
-
+        <select class="u-full-width" name="operation">
           <option value="combinations-with-repetitions">Combinations with repetitions</option>
           <option value="combinations-without-repetitions">Combinations without repetitions</option>
         </select>
 
+            <input type="text" name="item_to_include">
+            <input type="submit" value="Add Item" class="button">
+
+          <br>
         <input type="submit" value="Calculate" id="calc_btn" />
         <br />
         <div class="alert">
-          {{ sum }}
+         Amount of possibilities:  {{ sum }}
+        </div>
+          <div class="alert">
+        Combinations:  {{ combinations }}
         </div>
       </form>
     </div>

@@ -29,19 +29,22 @@ def send(sum=sum):
                 numerator = factorial(int(n) + int(k) - 1)
                 denominator = factorial(int(k)) * factorial(int(n) - 1)
                 sum = int(numerator) / int(denominator)
-                return render_template('app.html', sum=sum)
+                return render_template('app.html', sum=int(sum))
             except:
-                return render_template('app.html', sum="Error has been occurred")
+                return render_template('app.html', sum="An error has been occurred")
         elif operation == 'combinations-without-repetitions':
             try:
                 numerator = factorial(int(n))
                 denominator = factorial(int(k)) * factorial(int(n) - int(k))
                 sum = int(numerator) / int(denominator)
-                return render_template('app.html', sum=sum)
+                return render_template('app.html', sum=int(sum))
             except:
-                return render_template('app.html', sum="Error has been occurred")
+                return render_template('app.html', sum="An error has been occurred")
         else:
-            return render_template('app.html', alert="Blad")
+            return render_template('app.html')
+
+
+
 
 if __name__ == ' __main__':
     app.debug = True
