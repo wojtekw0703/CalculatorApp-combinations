@@ -5,7 +5,10 @@ from math import factorial
 import itertools as it
 
 
-my_list=[]
+my_list = []
+sum = 0
+combinations = 0
+result = 0
 #Declaring the app
 app = Flask(__name__)
 
@@ -32,7 +35,7 @@ def send(sum=sum):
                 sum = int(numerator) / int(denominator)
                 for i in range(1, int(n)+1):
                     my_list.append(i)
-                result = set(list(it.combinations(my_list, int(k))))
+                result = set(list(it.combinations_with_replacement(my_list, int(k))))
 
 
             elif operation == 'combinations-without-repetitions':
@@ -43,7 +46,7 @@ def send(sum=sum):
                     my_list.append(i)
                 result = set(list(it.combinations(my_list, int(k))))
 
-            return render_template('app.html', sum=int(sum), combinations=result)
+            return render_template('app.html',n_send=n,k_send=k, sum=int(sum), combinations=result)
         except Exception as err:
             return render_template('app.html', sum=err)
 
