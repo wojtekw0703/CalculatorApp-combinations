@@ -4,11 +4,6 @@ from flask import request
 from math import factorial
 import itertools as it
 
-
-my_list = []
-sum = 0
-combinations = 0
-result = 0
 #Declaring the app
 app = Flask(__name__)
 
@@ -21,7 +16,7 @@ def main():
 
 #Form Submission Route
 @app.route('/send', methods=['POST'])
-def send(sum=sum):
+def send():
     if request.method == 'POST' and request.form['action'] == "Calculate":
         try:
             #Start pulling data from form input
@@ -30,6 +25,7 @@ def send(sum=sum):
             operation = request.form['operation']
 
             if operation == 'combinations-with-repetitions':
+                my_list = []
                 numerator = factorial(int(n) + int(k) - 1)
                 denominator = factorial(int(k)) * factorial(int(n) - 1)
                 sum = int(numerator) / int(denominator)
@@ -39,6 +35,7 @@ def send(sum=sum):
 
 
             elif operation == 'combinations-without-repetitions':
+                my_list = []
                 numerator = factorial(int(n))
                 denominator = factorial(int(k)) * factorial(int(n) - int(k))
                 sum = int(numerator) / int(denominator)
@@ -51,8 +48,6 @@ def send(sum=sum):
             return render_template('app.html', sum=err)
 
 
-
-
 if __name__ == ' __main__':
-    app.debug = True
     app.run()
+    main()
