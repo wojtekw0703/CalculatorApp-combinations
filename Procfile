@@ -1,1 +1,1 @@
-web: gunicorn Combinations-with-repetitions.wsgi --log-file -
+web: gunicorn Combinations-with-repetitions.wsgi --log-file=-
