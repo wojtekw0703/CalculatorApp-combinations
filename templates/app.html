@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Calculator</title>
+    <link rel='shortcut icon' href="{{ url_for('static', filename='favicon.png') }}"/>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
@@ -18,16 +19,43 @@
         color: white;
         margin: 0.5rem;
       }
+        #made {
+	float: left;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	text-align: center;
+	bottom: 0px;
+	width: 100%;
+}
+body {
+	background: linear-gradient(-45deg, #ee7752, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+    color:white;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+
+}
+
     </style>
   </head>
   <body>
     <div class="container">
-      <h3>Calculator App</h3>
+      <h2>Calculator App <img src="/static/rsz_1favico2n.png"></h2>
     </div>
 
-    <!-- Form -->
     <div class="container">
-      <form action="/send" method="POST">
+<form action="{{ url_for('send') }}" method="POST">
         <label for="Number n">n</label>
         <input
           type="text"
@@ -42,6 +70,7 @@
           placeholder="Enter k"
           class="u-full-width"
           name="k"
+          pattern="[0-9]"
         />
 
         <label for="Operation">Operation</label>
@@ -50,19 +79,21 @@
           <option value="combinations-without-repetitions">Combinations without repetitions</option>
         </select>
 
-            <input type="text" name="item_to_include">
-            <input type="submit" value="Add Item" class="button">
+        <input type="submit" name="action" style ="color:#03DAC5; background-color:#6200EE; border:0" value="Calculate"  id="calc_btn" />
 
-          <br>
-        <input type="submit" value="Calculate" id="calc_btn" />
         <br />
         <div class="alert">
-         Amount of possibilities:  {{ sum }}
+         n = {{ n_send }}, k = {{ k_send }}, amount of possibilities:  {{ sum }}
         </div>
+
           <div class="alert">
-        Combinations:  {{ combinations }}
+            Combinations:  {{ combinations }}
         </div>
-      </form>
+    </form>
     </div>
+    </div>
+  <div id="made">
+		<h6 class="text-light small font-weight-bold">Made with Flask & Python & CSS by <a href="http://wojciechwydmuch.com" style="color:white">Wojciech Wydmuch</a></h6>
+		</div>
   </body>
 </html>

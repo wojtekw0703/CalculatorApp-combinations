@@ -4,9 +4,10 @@ from flask import request
 from math import factorial
 import itertools as it
 
+
 #Declaring the app
 app = Flask(__name__)
-
+app.secret_key = "super secret key"
 #Start an app route
 @app.route('/')
 
@@ -44,10 +45,9 @@ def send():
                 result = set(list(it.combinations(my_list, int(k))))
 
             return render_template('app.html',n_send=n,k_send=k, sum=int(sum), combinations=result)
-        except Exception as err:
-            return render_template('app.html', sum=err)
+        except Exception:
+            return render_template('app.html')
 
 
 if __name__ == ' __main__':
-    app.run()
-    main()
+    app.run(debug=True)
