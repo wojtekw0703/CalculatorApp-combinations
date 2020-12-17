@@ -1,1 +1,1 @@
-web: gunicorn Combinations-with-repetitions.wsgi
+web: gunicorn app:app
