@@ -3,8 +3,6 @@ from flask import render_template
 from flask import request
 from math import factorial
 import itertools as it
-import gunicorn
-
 
 
 #Declaring the app
@@ -21,7 +19,7 @@ def main():
 #Form Submission Route
 @app.route('/send', methods=['POST'])
 def send():
-    if request.method == 'POST' and request.form['action'] == "Calculate":
+    if request.method == 'POST' and request.form['action'] == "Oblicz":
         try:
             #Start pulling data from form input
             n = request.form['n']

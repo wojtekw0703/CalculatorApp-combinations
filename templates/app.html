@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Calculator</title>
+    <title>Kalkulator</title>
     <link rel='shortcut icon' href="{{ url_for('static', filename='favicon.png') }}"/>
     <link
       rel="stylesheet"
@@ -51,49 +51,49 @@ body {
   </head>
   <body>
     <div class="container">
-      <h2>Calculator App <img src="/static/rsz_1favico2n.png"></h2>
-    </div>
-
-    <div class="container">
+      <h5>Kalkulator (kombinatoryka)</h5>
 <form action="{{ url_for('send') }}" method="POST">
-        <label for="Number n">n</label>
+        <label for="Liczba n">n</label>
         <input
           type="text"
-          placeholder="Enter n"
+          placeholder="Wprowadź n"
           class="u-full-width"
           name="n"
         />
 
-        <label for="Number k">k</label>
+        <label for="Liczba k">k</label>
         <input
           type="text"
-          placeholder="Enter k"
+          placeholder="Wprowadź k"
           class="u-full-width"
           name="k"
           pattern="[0-9]"
         />
 
-        <label for="Operation">Operation</label>
+        <label for="Operation">Operacja</label>
         <select class="u-full-width" name="operation">
-          <option value="combinations-with-repetitions">Combinations with repetitions</option>
-          <option value="combinations-without-repetitions">Combinations without repetitions</option>
+          <option value="combinations-with-repetitions">Kombinacje z powtórzeniami</option>
+          <option value="combinations-without-repetitions">Kombinacje bez powtórzeń</option>
         </select>
 
-        <input type="submit" name="action" style ="color:#03DAC5; background-color:#6200EE; border:0" value="Calculate"  id="calc_btn" />
+        <input type="submit" name="action" style ="color:#03DAC5; background-color:#6200EE; border:0" value="Oblicz"  id="calc_btn" />
 
         <br />
         <div class="alert">
-         n = {{ n_send }}, k = {{ k_send }}, amount of possibilities:  {{ sum }}
+         n = {{ n_send }}, k = {{ k_send }}, ilość:  {{ sum }}
         </div>
 
           <div class="alert">
-            Combinations:  {{ combinations }}
+            Kombinacje:  {{ combinations }}
         </div>
-    </form>
-    </div>
-    </div>
-  <div id="made">
-		<h6 class="text-light small font-weight-bold">Made with Flask & Python & CSS by <a href="http://wojciechwydmuch.com" style="color:white">Wojciech Wydmuch</a></h6>
+    <div id="made">
+		<h6 class="text-light small font-weight-bold">Wykonane przez Wojciech Wydmuch</h6>
 		</div>
+    </form>
+
+    </div>
+
+    </div>
+
   </body>
 </html>
