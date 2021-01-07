@@ -24,7 +24,9 @@
 	float: left;
 	padding-bottom: 10px;
 	padding-top: 10px;
-	text-align: left;
+	position: absolute;
+            left:100px;
+            top: 355px;
 	bottom: 0px;
 	width: 100%;
 }
@@ -46,13 +48,11 @@ body {
         background-position: 0% 50%;
     }
 }
-
-
     </style>
   </head>
   <body>
     <div class="container">
-     <label for="kalkulator">Kalkulator (kombinacje)</label>
+        <b>Kalkulator (kombinatoryka). Wykonał Wojciech Wydmuch</b>
      <form action="{{ url_for('send') }}" method="POST">
     <table>
         <tr>
@@ -83,20 +83,14 @@ body {
 
 
         <div class="alert" width="50px">
-         n = {{ n_send }}, k = {{ k_send }}, ilość:  {{ sum }}
+         n = {{ n_send }}, k = {{ k_send }}, ilość kombinacji:  {{ sum }}
         </div>
 
           <div class="alert" >
             Kombinacje:  {{ combinations }}
         </div>
-    <div id="made">
-		<h6 class="text-light small font-weight-bold">Wykonane przez Wojciech Wydmuch</h6>
-		</div>
     </form>
-
     </div>
-
     </div>
-
   </body>
 </html>
