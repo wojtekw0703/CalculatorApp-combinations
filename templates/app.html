@@ -18,12 +18,13 @@
         border-radius: 10px;
         color: white;
         margin: 0.5rem;
+          width: 400px;
       }
         #made {
 	float: left;
 	padding-bottom: 10px;
 	padding-top: 10px;
-	text-align: center;
+	text-align: left;
 	bottom: 0px;
 	width: 100%;
 }
@@ -35,55 +36,57 @@ body {
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
+
 
     </style>
   </head>
   <body>
     <div class="container">
      <label for="kalkulator">Kalkulator (kombinacje)</label>
-<form action="{{ url_for('send') }}" method="POST">
+     <form action="{{ url_for('send') }}" method="POST">
+    <table>
+        <tr>
+       <td>
         <label for="Liczba n">n</label>
         <input
           type="text"
           placeholder="Wprowadź n"
-          class="u-full-width"
+          width="15px"
           name="n"
-        />
-
-        <label for="Liczba k">k</label>
+        /></td>
+        <td><label for="Liczba k">k</label>
         <input
           type="text"
           placeholder="Wprowadź k"
-          class="u-full-width"
+          width="15px"
           name="k"
           pattern="[0-9]"
-        />
-
+        /></td>
+        </tr>
+    </table>
         <label for="Operation">Operacja</label>
-        <select class="u-full-width" name="operation">
+        <select width="600px" name="operation">
           <option value="combinations-with-repetitions">Kombinacje z powtórzeniami</option>
           <option value="combinations-without-repetitions">Kombinacje bez powtórzeń</option>
         </select>
-
         <input type="submit" name="action" style ="color:#03DAC5; background-color:#6200EE; border:0" value="Oblicz"  id="calc_btn" />
 
-        <br />
-        <div class="alert">
+
+        <div class="alert" width="50px">
          n = {{ n_send }}, k = {{ k_send }}, ilość:  {{ sum }}
         </div>
 
-          <div class="alert">
+          <div class="alert" >
             Kombinacje:  {{ combinations }}
         </div>
     <div id="made">
