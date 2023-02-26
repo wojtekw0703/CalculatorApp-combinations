@@ -10,7 +10,3 @@ It is a simple app that is focused on calculating combinations with repetitions 
 - factorial
 - itertools
 - gunicorn
-
-## Try it yourself
-The app is available at Heroku: https://combinations-calculator-app.herokuapp.com
-
